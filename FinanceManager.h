@@ -13,6 +13,11 @@ public:
 
 void userRegistration();
 void showAllUsers();
+void userLogging();
+void changePasswordLoggedUser();
+char selectOptionFromGeneralMenu();
+bool isUserLoggedin();
+
 
 };
 #endif

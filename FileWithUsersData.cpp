@@ -54,4 +54,29 @@ vector <User> FileWithUsersData::readUsersFromFile() {
     return users;
 }
 
+void FileWithUsersData::saveNewPasswordInFile(string password, int idLoggedUser) {
 
+    CMarkup xml;
+    if (xml.Load(FILE_WITH_USER_DATA)) {
+        if (xml.FindElem("users")) {
+            xml.IntoElem();
+            while (xml.FindElem("user")) {
+                xml.IntoElem();
+                xml.FindElem("idUser");
+                string idUserStr = xml.GetData();
+                int idUser = stoi(idUserStr);
+                if (idUser == idLoggedUser) {
+                    xml.FindElem("password");
+                    xml.SetData(password);
+                }
+                xml.OutOfElem();
+            }
+            xml.Save(FILE_WITH_USER_DATA);
+
+        } else {
+            cout << "Nie znaleziono elementu <users> w pliku XML." << endl;
+        }
+    } else {
+        cout << "Nie udalo sie zaladowac pliku XML." << endl;
+    }
+}

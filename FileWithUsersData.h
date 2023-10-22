@@ -17,4 +17,5 @@ public:
     FileWithUsersData(string fileNameWithUsers) : FILE_WITH_USER_DATA(fileNameWithUsers) {};
     vector <User> readUsersFromFile();
     void saveUserDataInFile(User user);
+    void saveNewPasswordInFile(string password, int idLoggedUser);
 };
