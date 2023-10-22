@@ -3,7 +3,7 @@
 void FileWithUsersData::saveUserDataInFile(User user) {
     CMarkup Users;
 
-    Users.Load("users.xml");
+    Users.Load(FILE_WITH_USER_DATA);
     if (Users.FindElem("users")){
     Users.IntoElem();
     } else {
@@ -20,7 +20,7 @@ void FileWithUsersData::saveUserDataInFile(User user) {
     Users.AddElem("surname", user.getSurname());
     Users.OutOfElem();
     Users.OutOfElem();
-    Users.Save("users.xml");
+    Users.Save(FILE_WITH_USER_DATA);
     }
 
 string FileWithUsersData::replaceUserDataOnDataLineSeparatedVerticalDashes(User user) {
