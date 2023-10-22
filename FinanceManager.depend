@@ -27,10 +27,10 @@
 1697795176 c:\users\komputer\desktop\pp\cpp\financemanager\user.h
 	<iostream>
 
-1697963658 source:c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.cpp
+1697972479 source:c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.cpp
 	"UserManager.h"
 
-1697963658 c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.h
+1697970503 c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.h
 	<iostream>
 	<vector>
 	"User.h"
@@ -39,7 +39,7 @@
 	<fstream>
 	<sstream>
 
-1697796273 c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.h
+1697971501 c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -48,17 +48,17 @@
 	"User.h"
 	"SupportiveMethods.h"
 
-1697964422 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.cpp
+1697971985 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.cpp
 	"FileWithusersData.h"
 
-1697797229 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
+1697971835 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
 	"FinanceManager.h"
 
-1697797229 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
+1697971823 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
 	<iostream>
 	"UserManager.h"
 
-1697797185 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
+1697972479 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
 	<iostream>
 	"FinanceManager.h"
 

@@ -5,26 +5,29 @@
 using namespace std;
 
 
-int main()
-{
-/*
-CMarkup users;
-users.AddElem( "USERS" );
-users.IntoElem();
-users.AddElem( "USER" );
-users.IntoElem();
-users.AddElem( "IDUSER", user.idUser +1 );
-users.AddElem( "LOGIN", user.login );
-users.AddElem("PASSWORD", user.password);
-users.AddElem ("NAME", user.name);
-users.AddElem( "SURNAME", user.surname );
+int main() {
+    FinanceManager financeManager("Users.xml");
+    char choice;
+    financeManager.showAllUsers();
+    while (true) {
+        if (!financeManager.isUserLoggedin()) {
+            choice = financeManager.selectOptionFromGeneralMenu();
 
-users.Save( "users.xml" );
-*/
-FinanceManager financeManager("Users.xml");
-financeManager.userRegistration();
-financeManager.showAllUsers();
-
-
-return 0;
+            switch (choice) {
+            case '1': financeManager.userRegistration(); break;
+            case '2': financeManager.userLogging(); break;
+            case '9': exit(0); break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+            }
+        } else {
+            financeManager.changePasswordLoggedUser();
+            break;
+        }
+    }
+    return 0;
 }
+
+
