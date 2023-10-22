@@ -1,0 +1,6 @@
+bin/
+obj/
+plan/
+AddressBook_object*
+Users.xml
+

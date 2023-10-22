@@ -1,0 +1,64 @@
+# depslib dependency file v1.0
+1303067212 source:c:\users\komputer\desktop\pp\cpp\financemanager\markup.cpp
+	<stdio.h>
+	"Markup.h"
+	<errno.h>
+	<iconv.h>
+	<windows.h>
+	<mbstring.h>
+
+1303067212 c:\users\komputer\desktop\pp\cpp\financemanager\markup.h
+	<stdlib.h>
+	<string.h>
+	<string>
+	<afx.h>
+
+1697377842 source:c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.cpp
+	"SupportiveMethods.h"
+
+1697377842 c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.h
+	<iostream>
+	<sstream>
+	<algorithm>
+
+1697797407 source:c:\users\komputer\desktop\pp\cpp\financemanager\user.cpp
+	"User.h"
+
+1697795176 c:\users\komputer\desktop\pp\cpp\financemanager\user.h
+	<iostream>
+
+1697963658 source:c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.cpp
+	"UserManager.h"
+
+1697963658 c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.h
+	<iostream>
+	<vector>
+	"User.h"
+	"FileWithUsersData.h"
+	<windows.h>
+	<fstream>
+	<sstream>
+
+1697796273 c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.h
+	<iostream>
+	<vector>
+	<fstream>
+	<cstdlib>
+	"Markup.h"
+	"User.h"
+	"SupportiveMethods.h"
+
+1697964422 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.cpp
+	"FileWithusersData.h"
+
+1697797229 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
+	"FinanceManager.h"
+
+1697797229 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
+	<iostream>
+	"UserManager.h"
+
+1697797185 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
+	<iostream>
+	"FinanceManager.h"
+
