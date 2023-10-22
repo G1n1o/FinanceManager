@@ -1,101 +1,57 @@
 #include "FileWithusersData.h"
 
 void FileWithUsersData::saveUserDataInFile(User user) {
-    CMarkup Users;
+    CMarkup xml;
 
-    Users.Load(FILE_WITH_USER_DATA);
-    if (Users.FindElem("users")){
-    Users.IntoElem();
+    xml.Load(FILE_WITH_USER_DATA);
+    if (xml.FindElem("users")) {
+        xml.IntoElem();
     } else {
-    Users.AddElem( "users" );
-    Users.IntoElem();
+        xml.AddElem( "users" );
+        xml.IntoElem();
     }
 
-    Users.AddElem( "user" );
-    Users.IntoElem();
-    Users.AddElem("idUser", user.getIdUser());
-    Users.AddElem("login", user.getLogin() );
-    Users.AddElem("password", user.getPassword());
-    Users.AddElem("name", user.getName());
-    Users.AddElem("surname", user.getSurname());
-    Users.OutOfElem();
-    Users.OutOfElem();
-    Users.Save(FILE_WITH_USER_DATA);
-    }
-
-string FileWithUsersData::replaceUserDataOnDataLineSeparatedVerticalDashes(User user) {
-    string lineWithUserData = "";
-    lineWithUserData += SupportiveMethods::convertFromIntToString(user.getIdUser())+ '|';
-    lineWithUserData += user.getLogin() + '|';
-    lineWithUserData += user.getPassword() + '|';
-    return lineWithUserData;
+    xml.AddElem( "user" );
+    xml.IntoElem();
+    xml.AddElem("idUser", user.getIdUser());
+    xml.AddElem("login", user.getLogin() );
+    xml.AddElem("password", user.getPassword());
+    xml.AddElem("name", user.getName());
+    xml.AddElem("surname", user.getSurname());
+    xml.OutOfElem();
+    xml.OutOfElem();
+    xml.Save(FILE_WITH_USER_DATA);
 }
 
 vector <User> FileWithUsersData::readUsersFromFile() {
     User user;
     vector <User> users;
-    fstream textFile;
-    string singleUserDataSeparatedbyVerticalDashes = "";
+    CMarkup xml;
 
-    textFile.open(FILE_WITH_USER_DATA.c_str(), ios::in);
-
-    if (textFile.good()) {
-        while (getline(textFile, singleUserDataSeparatedbyVerticalDashes)) {
-            user = readUserData(singleUserDataSeparatedbyVerticalDashes);
+    if (xml.Load(FILE_WITH_USER_DATA)) {
+        xml.FindElem("users");
+        xml.IntoElem();
+        while (xml.FindElem("user")) {
+            xml.IntoElem();
+            xml.FindElem("idUser");
+            string idUserStr = xml.GetData();
+            user.setIdUser(stoi(idUserStr));
+            xml.FindElem("login");
+            user.setLogin(xml.GetData());
+            xml.FindElem("password");
+            user.setPassword(xml.GetData());
+            xml.FindElem("name");
+            user.setName(xml.GetData());
+            xml.FindElem("surname");
+            user.setSurname(xml.GetData());
+            xml.OutOfElem();
             users.push_back(user);
         }
+        xml.OutOfElem();
+    } else {
+        cout << "Nie udalo sie zaladowac pliku" << endl;
     }
-    textFile.close();
     return users;
 }
 
-User FileWithUsersData::readUserData(string singleUserDataSeparatedbyVerticalDashes) {
-    User user;
-    string singleUserData = "";
-    int numberSingleDataUser = 1;
-
-    for (size_t itemSign = 0; itemSign < singleUserDataSeparatedbyVerticalDashes.length(); itemSign++) {
-        if (singleUserDataSeparatedbyVerticalDashes[itemSign] != '|') {
-            singleUserData += singleUserDataSeparatedbyVerticalDashes[itemSign];
-        } else {
-            switch(numberSingleDataUser) {
-            case 1: user.setIdUser(atoi(singleUserData.c_str())); break;
-            case 2: user.setLogin(singleUserData); break;
-            case 3: user.setPassword(singleUserData); break;
-            }
-            singleUserData = "";
-            numberSingleDataUser++;
-        }
-    }
-    return user;
-}
-
-void FileWithUsersData::saveAllUsersDataInFile(vector <User> &users) {
-    fstream textFile;
-    string lineWithUserData = "";
-    vector <User>::iterator itrEnd = --users.end();
-
-    textFile.open(FILE_WITH_USER_DATA.c_str(), ios::out);
-
-    if (textFile.good()) {
-        for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
-            lineWithUserData = replaceUserDataOnDataLineSeparatedVerticalDashes(*itr);
-
-            if (itr == itrEnd) {
-                textFile << lineWithUserData;
-            } else {
-                textFile << lineWithUserData << endl;
-            }
-            lineWithUserData = "";
-        }
-    } else {
-        cout << "Nie mozna otworzyc pliku " << FILE_WITH_USER_DATA << endl;
-    }
-    textFile.close();
-}
-
-bool FileWithUsersData::isFileEmpty(fstream &textFile) {
-    textFile.seekg(0, ios::end);
-    return  (textFile.tellg() == 0) ? true : false;
-}
 

@@ -88,7 +88,7 @@ void UserManager::userLogging() {
     system("pause");
     return;
 }
-
+/*
 void UserManager::changePasswordLoggedUser() {
     string newPassword = "";
     cout << "Podaj nowe haslo: ";
@@ -101,13 +101,13 @@ void UserManager::changePasswordLoggedUser() {
                 system("pause");
             }
         }
-        fileWithUsersData.saveAllUsersDataInFile(users);
+    //    fileWithUsersData.saveAllUsersDataInFile(users);
     } else {
         cout << "Aby zmienic haslo, nalezy sie najpierw zalogowac" << endl;
         system("pause");
     }
 }
-
+*/
 bool UserManager::isUserLoggedIn() {
     return (idLoggedUser > 0) ? true : false;
 }

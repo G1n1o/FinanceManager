@@ -22,6 +22,7 @@ users.AddElem( "SURNAME", user.surname );
 users.Save( "users.xml" );
 */
 FinanceManager financeManager("Users.xml");
+financeManager.showAllUsers();
 financeManager.userRegistration();
 financeManager.showAllUsers();
 
