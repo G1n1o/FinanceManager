@@ -50,7 +50,7 @@ char FinanceManager::selectOptionFromUserMenu() {
     cout << "4. Bilans z poprzedniego miesiaca" << endl;
     cout << "5. Bilans z wybranego okresu" << endl;
     cout << "---------------------------" << endl;
-    cout << "6. Zmieñ has³o" << endl;
+    cout << "6. Zmien haslo" << endl;
     cout << "7. Wyloguj sie" << endl;
     cout << "---------------------------" << endl;
     cout << "Twoj wybor: ";

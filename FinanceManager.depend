@@ -51,7 +51,7 @@
 1698285371 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.cpp
 	"FileWithusersData.h"
 
-1698287205 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
+1698288332 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
 	"FinanceManager.h"
 
 1698287205 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
@@ -61,4 +61,37 @@
 1698287233 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
 	<iostream>
 	"FinanceManager.h"
+
+1698288321 source:c:\users\komputer\desktop\pp\cpp\financemanager\accountant.cpp
+	"Accountant.h"
+
+1698288323 c:\users\komputer\desktop\pp\cpp\financemanager\accountant.h
+	<iostream>
+	<vector>
+	"Incomes.h"
+	"Expenses.h"
+	"FileWithIncomes.h"
+	"FileWithExpenses.h"
+	<windows.h>
+
+1698289749 c:\users\komputer\desktop\pp\cpp\financemanager\incomes.h
+	<iostream>
+	<ctime>
+
+1698289622 c:\users\komputer\desktop\pp\cpp\financemanager\expenses.h
+	<iostream>
+	<ctime>
+
+1698287496 c:\users\komputer\desktop\pp\cpp\financemanager\filewithincomes.h
+
+1698287496 c:\users\komputer\desktop\pp\cpp\financemanager\filewithexpenses.h
+
+1698289603 source:c:\users\komputer\desktop\pp\cpp\financemanager\expenses.cpp
+	"Expenses.h"
+
+1698287496 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithexpenses.cpp
+
+1698287496 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithincomes.cpp
+
+1698287496 source:c:\users\komputer\desktop\pp\cpp\financemanager\incomes.cpp
 
