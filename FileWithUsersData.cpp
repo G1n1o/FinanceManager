@@ -3,14 +3,15 @@
 void FileWithUsersData::saveUserDataInFile(User user) {
     CMarkup xml;
 
-    xml.Load(FILE_WITH_USER_DATA);
-    if (xml.FindElem("users")) {
-        xml.IntoElem();
-    } else {
-        xml.AddElem( "users" );
-        xml.IntoElem();
+    bool fileExists = xml.Load(FILE_WITH_USER_DATA);
+    if (!fileExists)
+    {
+        xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
+        xml.AddElem("Users");
     }
 
+    xml.FindElem();
+    xml.IntoElem();
     xml.AddElem( "user" );
     xml.IntoElem();
     xml.AddElem("idUser", user.getIdUser());
@@ -18,8 +19,6 @@ void FileWithUsersData::saveUserDataInFile(User user) {
     xml.AddElem("password", user.getPassword());
     xml.AddElem("name", user.getName());
     xml.AddElem("surname", user.getSurname());
-    xml.OutOfElem();
-    xml.OutOfElem();
     xml.Save(FILE_WITH_USER_DATA);
 }
 

@@ -14,8 +14,10 @@ public:
 void userRegistration();
 void showAllUsers();
 void userLogging();
+void userLogout();
 void changePasswordLoggedUser();
 char selectOptionFromGeneralMenu();
+char selectOptionFromUserMenu();
 bool isUserLoggedin();
 
 
