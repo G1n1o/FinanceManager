@@ -10,7 +10,7 @@ void Expense::setIdUser (int newIdUser) {
         idUser = newIdUser;
     }
 }
-void Expense::setDate (tm newDate) {
+void Expense::setDate (string newDate) {
     date = newDate;
 }
 void Expense::setItem (string newItem) {
@@ -26,7 +26,7 @@ int Expense::getExpenseId() {
 int Expense::getIdUser() {
     return idUser;
 }
-tm Expense::getDate() {
+string Expense::getDate() {
     return date;
 }
 string Expense::getItem() {

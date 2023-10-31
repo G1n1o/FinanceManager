@@ -6,7 +6,8 @@ using namespace std;
 
 
 int main() {
-    FinanceManager financeManager("Users.xml");
+    FinanceManager financeManager("Users.xml", "Incomes.xml", "Expenses.xml");
+
     char choice;
     financeManager.showAllUsers();
     while (true) {

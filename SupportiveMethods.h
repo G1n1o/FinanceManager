@@ -13,7 +13,6 @@ class SupportiveMethods {
     static string convertFromIntToString(int number);
     static int convertFromStringToInt(string number);
     static string swapFirstLetterForLargeOtherForSmall(string text);
-    static string getNumber(string text, int positionSign);
     static char readSign();
     static int readNumber();
 

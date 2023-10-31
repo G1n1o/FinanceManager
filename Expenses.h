@@ -2,13 +2,12 @@
 #define EXPENSES_H
 
 #include <iostream>
-#include <ctime>
 
 using namespace std;
 
 class Expense {
     int expenseId, idUser;
-    tm date;
+    string date;
     string item;
     float amount;
 
@@ -16,13 +15,13 @@ class Expense {
 public:
     void setExpenseId (int newExpenseId);
     void setIdUser (int newIdUser);
-    void setDate (tm newDate);
+    void setDate (string newDate);
     void setItem (string newItem);
     void setAmount (float newAmount);
 
     int getExpenseId();
     int getIdUser();
-    tm getDate();
+    string getDate();
     string getItem();
     float getAmount();
 };

@@ -10,6 +10,9 @@ void FinanceManager::showAllUsers(){
 
 void FinanceManager::userLogging() {
     userManager.userLogging();
+     if (userManager.isUserLoggedIn()) {
+        accountant = new Accountant(FILE_NAME_WITH_INCOMES, FILE_NAME_WITH_EXPENSES,userManager.getidLoggedUser());
+    }
 }
 
 void FinanceManager::changePasswordLoggedUser() {

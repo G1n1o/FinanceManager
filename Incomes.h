@@ -2,13 +2,13 @@
 #define INCOMES_H
 
 #include <iostream>
-#include <ctime>
+
 
 using namespace std;
 
 class Income {
     int incomeId, idUser;
-    tm date;
+    string date;
     string item;
     float amount;
 
@@ -16,13 +16,13 @@ class Income {
 public:
     void setIncomeId (int newIncomeId);
     void setIdUser (int newIdUser);
-    void setDate (tm newDate);
+    void setDate (string newDate);
     void setItem (string newItem);
     void setAmount (float newAmount);
 
     int getIncomeId();
     int getIdUser();
-    tm getDate();
+    string getDate();
     string getItem();
     float getAmount();
 };

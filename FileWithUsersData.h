@@ -5,16 +5,15 @@
 #include "Markup.h"
 #include "User.h"
 #include "SupportiveMethods.h"
+#include "TextFile.h"
 
 
 using namespace std;
 
-class FileWithUsersData {
-
-    const string FILE_WITH_USER_DATA;
+class FileWithUsersData : public TextFile {
 
 public:
-    FileWithUsersData(string fileNameWithUsers) : FILE_WITH_USER_DATA(fileNameWithUsers) {};
+    FileWithUsersData(string fileNameWithUsers) : TextFile(fileNameWithUsers) {};
     vector <User> readUsersFromFile();
     void saveUserDataInFile(User user);
     void saveNewPasswordInFile(string password, int idLoggedUser);

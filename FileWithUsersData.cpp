@@ -3,11 +3,11 @@
 void FileWithUsersData::saveUserDataInFile(User user) {
     CMarkup xml;
 
-    bool fileExists = xml.Load(FILE_WITH_USER_DATA);
+    bool fileExists = xml.Load(getFileName());
     if (!fileExists)
     {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n");
-        xml.AddElem("Users");
+        xml.AddElem("users");
     }
 
     xml.FindElem();
@@ -19,7 +19,7 @@ void FileWithUsersData::saveUserDataInFile(User user) {
     xml.AddElem("password", user.getPassword());
     xml.AddElem("name", user.getName());
     xml.AddElem("surname", user.getSurname());
-    xml.Save(FILE_WITH_USER_DATA);
+    xml.Save(getFileName());
 }
 
 vector <User> FileWithUsersData::readUsersFromFile() {
@@ -27,7 +27,7 @@ vector <User> FileWithUsersData::readUsersFromFile() {
     vector <User> users;
     CMarkup xml;
 
-    if (xml.Load(FILE_WITH_USER_DATA)) {
+    if (xml.Load(getFileName())) {
         xml.FindElem("users");
         xml.IntoElem();
         while (xml.FindElem("user")) {
@@ -56,7 +56,7 @@ vector <User> FileWithUsersData::readUsersFromFile() {
 void FileWithUsersData::saveNewPasswordInFile(string password, int idLoggedUser) {
 
     CMarkup xml;
-    if (xml.Load(FILE_WITH_USER_DATA)) {
+    if (xml.Load(getFileName())) {
         if (xml.FindElem("users")) {
             xml.IntoElem();
             while (xml.FindElem("user")) {
@@ -70,7 +70,7 @@ void FileWithUsersData::saveNewPasswordInFile(string password, int idLoggedUser)
                 }
                 xml.OutOfElem();
             }
-            xml.Save(FILE_WITH_USER_DATA);
+            xml.Save(getFileName());
 
         } else {
             cout << "Nie znaleziono elementu <users> w pliku XML." << endl;
