@@ -70,9 +70,10 @@ int SupportiveMethods::readNumber() {
 }
 
 string SupportiveMethods::getCurrentDate() {
-    auto current_date = floor<days>(chrono::system_clock::now());
-    return format("%F", current_date);
+    auto currentDate = floor<days>(chrono::system_clock::now());
+    return format("%F", currentDate);
 }
+
 bool SupportiveMethods::isValidDate(string inputDate) {
     date::year_month_day parsedDate;
     istringstream dateStream(inputDate);
@@ -90,5 +91,17 @@ string SupportiveMethods::swapCommaToDot(string input) {
         }
     }
     return input;
+}
+
+
+bool SupportiveMethods::compareByDate (Income a, Income b) {
+
+    istringstream dateStreamA(a.getDate());
+    istringstream dateStreamB(b.getDate());
+    year_month_day dateA, dateB;
+    dateStreamA >> parse("%F", dateA);
+    dateStreamB >> parse("%F", dateB);
+
+    return dateA < dateB;
 }
 

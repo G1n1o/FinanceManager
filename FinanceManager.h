@@ -33,6 +33,7 @@ public:
     bool isUserLoggedin();
     void addNewIncome();
     void showUserIncomes();
+    void displayIncomesForCurrentMonth();
 
 
 };

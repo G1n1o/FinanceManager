@@ -48,11 +48,9 @@ Income Accountant::enterDataNewIncome() {
 
 void Accountant:: printData(Income income) {
     cout << left;
-    cout << setw (20) <<  "ID- przychodu: "  << setw (20) <<  income.getIncomeId() << endl;
-    cout << setw (20) << "Id - uzytkownika: "  << setw (20) <<  income.getIdUser() << endl;
-    cout << "Data "  << setw (15) <<  income.getDate();
-    cout << "Kategoria "  << setw (15) <<  income.getItem();
-    cout << "Kwota "  <<  setw (15) << income.getAmount() << endl;
+    cout << "Data: "  << setw (15) <<  income.getDate();
+    cout << "Kategoria: "  << setw (15) <<  income.getItem();
+    cout << "Kwota: "  <<  setw (15) << income.getAmount() << endl;
 }
 
 void Accountant::showUserIncomes() {
@@ -64,8 +62,33 @@ void Accountant::showUserIncomes() {
         system("pause");
         return;
     }
+    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
     for (const Income &income : incomes) {
         printData(income);
     }
+    cout << endl;
     system("pause");
 }
+
+void Accountant::displayIncomesForCurrentMonth() {
+
+    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
+    float sum =0;
+
+    year_month_day currentDate = floor<days>(chrono::system_clock::now());
+
+
+    for (Income item : incomes) {
+        istringstream dateStream(item.getDate());
+        year_month_day itemDate;
+        dateStream >> parse("%Y-%m-%d", itemDate);
+
+        if (itemDate.year() == currentDate.year() && itemDate.month() == currentDate.month()) {
+            printData(item);
+            sum+=item.getAmount();
+        }
+    }
+    cout << "Suma przychodow: "<< sum << endl;
+    system ("pause");
+}
+

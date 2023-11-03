@@ -76,9 +76,9 @@ void FinanceManager::addNewIncome() {
         system("pause");
     }
 }
-void FinanceManager::showUserIncomes() {
+void FinanceManager::displayIncomesForCurrentMonth() {
     if (userManager.isUserLoggedIn()) {
-        accountant->showUserIncomes();
+        accountant->displayIncomesForCurrentMonth();
     } else {
         cout << "Aby wyswietlic przychody, nalezy sie najpierw zalogowac" << endl;
         system("pause");

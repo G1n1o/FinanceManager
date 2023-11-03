@@ -4,6 +4,7 @@
 #include <sstream>
 #include <algorithm>
 #include "date.h"
+#include "Incomes.h"
 
 using namespace std;
 using namespace date;
@@ -21,6 +22,7 @@ class SupportiveMethods {
     static string getCurrentDate();
     static bool isValidDate(string inputDate);
     static string swapCommaToDot(string input);
+    static bool compareByDate(Income a, Income b);
 };
 
 #endif
