@@ -31,6 +31,8 @@ public:
     char selectOptionFromGeneralMenu();
     char selectOptionFromUserMenu();
     bool isUserLoggedin();
+    void addNewIncome();
+    void showUserIncomes();
 
 
 };

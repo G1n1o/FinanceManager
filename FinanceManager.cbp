@@ -50,10 +50,13 @@
 		<Unit filename="Markup.h" />
 		<Unit filename="SupportiveMethods.cpp" />
 		<Unit filename="SupportiveMethods.h" />
+		<Unit filename="TextFile.cpp" />
+		<Unit filename="TextFile.h" />
 		<Unit filename="User.cpp" />
 		<Unit filename="User.h" />
 		<Unit filename="UserManager.cpp" />
 		<Unit filename="UserManager.h" />
+		<Unit filename="date.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>
 			<lib_finder disable_auto="1" />

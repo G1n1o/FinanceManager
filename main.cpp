@@ -27,9 +27,9 @@ int main() {
             choice = financeManager.selectOptionFromUserMenu();
 
             switch (choice) {
-            case '1': break;
+            case '1': financeManager.addNewIncome(); break;
             case '2': break;
-            case '3': break;
+            case '3': financeManager.showUserIncomes();
             case '4': break;
             case '5': break;
             case '6': financeManager.changePasswordLoggedUser();break;

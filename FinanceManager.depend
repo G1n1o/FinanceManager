@@ -13,13 +13,14 @@
 	<string>
 	<afx.h>
 
-1698742248 source:c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.cpp
+1698983460 source:c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.cpp
 	"SupportiveMethods.h"
 
-1698742244 c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.h
+1698983460 c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.h
 	<iostream>
 	<sstream>
 	<algorithm>
+	"date.h"
 
 1697793807 source:c:\users\komputer\desktop\pp\cpp\financemanager\user.cpp
 	"User.h"
@@ -52,25 +53,28 @@
 1698754998 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.cpp
 	"FileWithusersData.h"
 
-1698672081 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
+1698812297 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
 	"FinanceManager.h"
 
-1698669386 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
+1698812297 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
 	<iostream>
 	"UserManager.h"
 	"Accountant.h"
 
-1698722284 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
+1698812224 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
 	<iostream>
 	"FinanceManager.h"
 
-1698284721 source:c:\users\komputer\desktop\pp\cpp\financemanager\accountant.cpp
+1698919023 source:c:\users\komputer\desktop\pp\cpp\financemanager\accountant.cpp
 	"Accountant.h"
 
-1698671589 c:\users\komputer\desktop\pp\cpp\financemanager\accountant.h
+1698918686 c:\users\komputer\desktop\pp\cpp\financemanager\accountant.h
 	<iostream>
 	<vector>
 	<sstream>
+	<string>
+	<iomanip>
+	"date.h"
 	"Incomes.h"
 	"Expenses.h"
 	"FileWithIncomes.h"
@@ -82,10 +86,11 @@
 1698666962 c:\users\komputer\desktop\pp\cpp\financemanager\expenses.h
 	<iostream>
 
-1698754922 c:\users\komputer\desktop\pp\cpp\financemanager\filewithincomes.h
+1698810556 c:\users\komputer\desktop\pp\cpp\financemanager\filewithincomes.h
 	<iostream>
 	<vector>
 	<filesystem>
+	<sstream>
 	"Markup.h"
 	"Incomes.h"
 	"SupportiveMethods.h"
@@ -105,7 +110,7 @@
 
 1698283896 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithexpenses.cpp
 
-1698671335 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithincomes.cpp
+1698813470 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithincomes.cpp
 	"FileWithIncomes.h"
 
 1698666956 source:c:\users\komputer\desktop\pp\cpp\financemanager\incomes.cpp
@@ -117,4 +122,30 @@
 
 1698754853 source:c:\users\komputer\desktop\pp\cpp\financemanager\textfile.cpp
 	"TextFile.h"
+
+1698902288 c:\users\komputer\desktop\pp\cpp\financemanager\date.h
+	<cassert>
+	<algorithm>
+	<cctype>
+	<chrono>
+	<climits>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdlib>
+	<ctime>
+	<ios>
+	<istream>
+	<iterator>
+	<limits>
+	<locale>
+	<memory>
+	<ostream>
+	<ratio>
+	<sstream>
+	<stdexcept>
+	<string>
+	<string_view>
+	<utility>
+	<type_traits>
 

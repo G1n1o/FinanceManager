@@ -5,6 +5,7 @@
 #include <iostream>
 #include <vector>
 #include <filesystem>
+#include <sstream>
 #include "Markup.h"
 #include "Incomes.h"
 #include "SupportiveMethods.h"
@@ -13,12 +14,15 @@
 using namespace std;
 
 class FileWithIncomes : public TextFile {
+    int idLastIncome;
 
 public:
      FileWithIncomes(string fileNameWithIncomes) : TextFile(fileNameWithIncomes) {
+          idLastIncome = 0;
     };
-
-    void addIncome(Income income);
+    vector <Income> loadIncomesLoggedUserFile(int IdLoggedUser);
+    bool addIncomeToFile(Income income);
+    int getIdLastIncome();
 
 };
 
