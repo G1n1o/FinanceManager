@@ -6,7 +6,8 @@ using namespace std;
 
 
 int main() {
-    FinanceManager financeManager("Users.xml");
+    FinanceManager financeManager("Users.xml", "Incomes.xml", "Expenses.xml");
+
     char choice;
     financeManager.showAllUsers();
     while (true) {
@@ -23,8 +24,21 @@ int main() {
                 break;
             }
         } else {
-            financeManager.changePasswordLoggedUser();
-            break;
+            choice = financeManager.selectOptionFromUserMenu();
+
+            switch (choice) {
+            case '1': financeManager.addNewIncome(); break;
+            case '2': break;
+            case '3': financeManager.showUserIncomes();
+            case '4': break;
+            case '5': break;
+            case '6': financeManager.changePasswordLoggedUser();break;
+            case '7': financeManager.userLogout(); break;
+            default:
+                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                system("pause");
+                break;
+            }
         }
     }
     return 0;

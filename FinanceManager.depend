@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1303067212 source:c:\users\komputer\desktop\pp\cpp\financemanager\markup.cpp
+1303063612 source:c:\users\komputer\desktop\pp\cpp\financemanager\markup.cpp
 	<stdio.h>
 	"Markup.h"
 	<errno.h>
@@ -7,30 +7,31 @@
 	<windows.h>
 	<mbstring.h>
 
-1303067212 c:\users\komputer\desktop\pp\cpp\financemanager\markup.h
+1303063612 c:\users\komputer\desktop\pp\cpp\financemanager\markup.h
 	<stdlib.h>
 	<string.h>
 	<string>
 	<afx.h>
 
-1697377842 source:c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.cpp
+1698983460 source:c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.cpp
 	"SupportiveMethods.h"
 
-1697377842 c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.h
+1698983460 c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.h
 	<iostream>
 	<sstream>
 	<algorithm>
+	"date.h"
 
-1697797407 source:c:\users\komputer\desktop\pp\cpp\financemanager\user.cpp
+1697793807 source:c:\users\komputer\desktop\pp\cpp\financemanager\user.cpp
 	"User.h"
 
-1697795176 c:\users\komputer\desktop\pp\cpp\financemanager\user.h
+1697791576 c:\users\komputer\desktop\pp\cpp\financemanager\user.h
 	<iostream>
 
-1697972479 source:c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.cpp
+1697969254 source:c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.cpp
 	"UserManager.h"
 
-1697970503 c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.h
+1697966903 c:\users\komputer\desktop\pp\cpp\financemanager\usermanager.h
 	<iostream>
 	<vector>
 	"User.h"
@@ -39,7 +40,7 @@
 	<fstream>
 	<sstream>
 
-1697971501 c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.h
+1698754922 c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.h
 	<iostream>
 	<vector>
 	<fstream>
@@ -47,18 +48,104 @@
 	"Markup.h"
 	"User.h"
 	"SupportiveMethods.h"
+	"TextFile.h"
 
-1697971985 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.cpp
+1698754998 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.cpp
 	"FileWithusersData.h"
 
-1697971835 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
+1698812297 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
 	"FinanceManager.h"
 
-1697971823 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
+1698812297 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
 	<iostream>
 	"UserManager.h"
+	"Accountant.h"
 
-1697972479 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
+1698812224 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
 	<iostream>
 	"FinanceManager.h"
+
+1698919023 source:c:\users\komputer\desktop\pp\cpp\financemanager\accountant.cpp
+	"Accountant.h"
+
+1698918686 c:\users\komputer\desktop\pp\cpp\financemanager\accountant.h
+	<iostream>
+	<vector>
+	<sstream>
+	<string>
+	<iomanip>
+	"date.h"
+	"Incomes.h"
+	"Expenses.h"
+	"FileWithIncomes.h"
+	"FileWithExpenses.h"
+
+1698666958 c:\users\komputer\desktop\pp\cpp\financemanager\incomes.h
+	<iostream>
+
+1698666962 c:\users\komputer\desktop\pp\cpp\financemanager\expenses.h
+	<iostream>
+
+1698810556 c:\users\komputer\desktop\pp\cpp\financemanager\filewithincomes.h
+	<iostream>
+	<vector>
+	<filesystem>
+	<sstream>
+	"Markup.h"
+	"Incomes.h"
+	"SupportiveMethods.h"
+	"TextFile.h"
+
+1698754922 c:\users\komputer\desktop\pp\cpp\financemanager\filewithexpenses.h
+	<iostream>
+	<vector>
+	<filesystem>
+	"Markup.h"
+	"Expenses.h"
+	"SupportiveMethods.h"
+	"TextFile.h"
+
+1698666960 source:c:\users\komputer\desktop\pp\cpp\financemanager\expenses.cpp
+	"Expenses.h"
+
+1698283896 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithexpenses.cpp
+
+1698813470 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithincomes.cpp
+	"FileWithIncomes.h"
+
+1698666956 source:c:\users\komputer\desktop\pp\cpp\financemanager\incomes.cpp
+	"Incomes.h"
+
+1698754853 c:\users\komputer\desktop\pp\cpp\financemanager\textfile.h
+	<iostream>
+	<fstream>
+
+1698754853 source:c:\users\komputer\desktop\pp\cpp\financemanager\textfile.cpp
+	"TextFile.h"
+
+1698902288 c:\users\komputer\desktop\pp\cpp\financemanager\date.h
+	<cassert>
+	<algorithm>
+	<cctype>
+	<chrono>
+	<climits>
+	<cmath>
+	<cstddef>
+	<cstdint>
+	<cstdlib>
+	<ctime>
+	<ios>
+	<istream>
+	<iterator>
+	<limits>
+	<locale>
+	<memory>
+	<ostream>
+	<ratio>
+	<sstream>
+	<stdexcept>
+	<string>
+	<string_view>
+	<utility>
+	<type_traits>
 
