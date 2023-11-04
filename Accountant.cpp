@@ -11,6 +11,17 @@ void Accountant::addNewIncome() {
     cout << (fileWithIncomes.addIncomeToFile(income) ? "Przychod zostal dodany" : "Blad. Nie udalo sie dodac przychodu do pliku" )<< endl;
     system("pause");
 }
+void Accountant::addNewExpense() {
+    Expense expense;
+
+    system("cls");
+    cout << " >>> DODAWANIE WYDATKU <<<" << endl << endl;
+    expense = enterDataNewExpense();
+
+    expenses.push_back(expense);
+    cout << (fileWithExpenses.addExpenseToFile(expense) ? "Wydatek zostal dodany" : "Blad. Nie udalo sie dodac przychodu do pliku") << endl;
+    system("pause");
+}
 
 Income Accountant::enterDataNewIncome() {
     Income income;
@@ -45,6 +56,39 @@ Income Accountant::enterDataNewIncome() {
 
     return income;
 }
+Expense Accountant::enterDataNewExpense() {
+    Expense expense;
+    string date = "", amount= "";
+    bool valid = false;
+
+
+    expense.setExpenseId(fileWithExpenses.getIdLastExpense() + 1);
+    expense.setIdUser(ID_LOGGED_USER);
+
+    cout << "Podaj date w formacie RRRR-MM-DD, jesli chcesz wprowadzic aktualna date wpisz 't': ";
+    date = SupportiveMethods::readLine();
+    if (date == "t") {
+        expense.setDate(SupportiveMethods::getCurrentDate());
+    }  else {
+        do {
+            if (SupportiveMethods::isValidDate(date)) {
+                expense.setDate(date);
+                valid = true;
+            } else {
+                cout << "Wprowdzono bledna date, podaj date w formacie RRRR-MM-DD: ";
+                date = SupportiveMethods::readLine();
+            }
+        } while (!valid);
+    }
+
+    cout << "Podaj kategorie przychodu: ";
+    expense.setItem(SupportiveMethods::readLine());
+
+    cout << "Podaj kwote: ";
+    expense.setAmount(stof(SupportiveMethods::swapCommaToDot(SupportiveMethods::readLine())));
+
+    return expense;
+}
 
 void Accountant:: printData(Income income) {
     cout << left;
@@ -70,7 +114,7 @@ void Accountant::showUserIncomes() {
     system("pause");
 }
 
-void Accountant::displayIncomesForCurrentMonth() {
+void Accountant::displayBalanceForCurrentMonth() {
 
     sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
     float sum =0;

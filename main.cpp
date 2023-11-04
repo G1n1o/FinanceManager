@@ -28,8 +28,8 @@ int main() {
 
             switch (choice) {
             case '1': financeManager.addNewIncome(); break;
-            case '2': break;
-            case '3': financeManager.displayIncomesForCurrentMonth();
+            case '2': financeManager.addNewExpense();break;
+            case '3': financeManager.displayBalanceForCurrentMonth();
             case '4': break;
             case '5': break;
             case '6': financeManager.changePasswordLoggedUser();break;

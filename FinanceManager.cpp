@@ -72,15 +72,23 @@ void FinanceManager::addNewIncome() {
     if (userManager.isUserLoggedIn()) {
         accountant->addNewIncome();
     } else {
-        cout << "Aby dodac adresata, nalezy sie najpierw zalogowac" << endl;
+        cout << "Aby dodac przychod, nalezy sie najpierw zalogowac" << endl;
         system("pause");
     }
 }
-void FinanceManager::displayIncomesForCurrentMonth() {
+void FinanceManager::addNewExpense() {
     if (userManager.isUserLoggedIn()) {
-        accountant->displayIncomesForCurrentMonth();
+        accountant->addNewExpense();
     } else {
-        cout << "Aby wyswietlic przychody, nalezy sie najpierw zalogowac" << endl;
+        cout << "Aby dodac wydatek, nalezy sie najpierw zalogowac" << endl;
+        system("pause");
+    }
+}
+void FinanceManager::displayBalanceForCurrentMonth() {
+    if (userManager.isUserLoggedIn()) {
+        accountant->displayBalanceForCurrentMonth();
+    } else {
+        cout << "Aby wyswietlic bilans, nalezy sie najpierw zalogowac" << endl;
         system("pause");
     }
 }
