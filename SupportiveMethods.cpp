@@ -6,14 +6,6 @@ string SupportiveMethods::readLine() {
     return input;
 }
 
-
-string SupportiveMethods::convertFromIntToString(int number) {
-    ostringstream ss;
-    ss << number;
-    string str = ss.str();
-    return str;
-}
-
 string SupportiveMethods::convertFromFloatToString(float amount) {
     ostringstream ss;
     ss << amount;
@@ -29,14 +21,6 @@ string SupportiveMethods::swapFirstLetterForLargeOtherForSmall(string text) {
     return text;
 }
 
-int SupportiveMethods::convertFromStringToInt(string number) {
-    int numberInt;
-    istringstream iss(number);
-    iss >> numberInt;
-
-    return numberInt;
-}
-
 char SupportiveMethods::readSign() {
     string input;
     char sign = {0};
@@ -50,23 +34,6 @@ char SupportiveMethods::readSign() {
         cout << "To nie jest pojedynczy znak. Wpisz ponownie: " << endl;
     }
     return sign;
-}
-
-int SupportiveMethods::readNumber() {
-    string input;
-    int number;
-
-    while (true) {
-        getline(cin,input);
-
-        stringstream myStream(input);
-        if (myStream >> number) {
-            break;
-        }
-        cout << "To nie jest liczba. Wpisz ponownie: " << endl;
-    }
-
-    return number;
 }
 
 string SupportiveMethods::getCurrentDate() {

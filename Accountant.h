@@ -30,6 +30,7 @@ Income enterDataNewIncome();
 Expense enterDataNewExpense();
 void printIncomes(Income income);
 void printExpenses(Expense expense);
+void displayBalance(year_month_day targetDate);
 
 public:
      Accountant(string fileNameWithIncomes, string fileNameWithExpenses, int idLoggedUser)
@@ -41,6 +42,7 @@ public:
     void addNewExpense();
     void showUserIncomes();
     void displayBalanceForCurrentMonth();
+    void displayBalanceForPreviousMonth();
 
 };
 

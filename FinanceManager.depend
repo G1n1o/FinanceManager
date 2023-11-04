@@ -13,10 +13,10 @@
 	<string>
 	<afx.h>
 
-1699072787 source:c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.cpp
+1699073731 source:c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.cpp
 	"SupportiveMethods.h"
 
-1699072787 c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.h
+1699073731 c:\users\komputer\desktop\pp\cpp\financemanager\supportivemethods.h
 	<iostream>
 	<sstream>
 	<algorithm>
@@ -55,22 +55,22 @@
 1698983774 source:c:\users\komputer\desktop\pp\cpp\financemanager\filewithusersdata.cpp
 	"FileWithusersData.h"
 
-1699071855 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
+1699075843 source:c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.cpp
 	"FinanceManager.h"
 
-1699071855 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
+1699075843 c:\users\komputer\desktop\pp\cpp\financemanager\financemanager.h
 	<iostream>
 	"UserManager.h"
 	"Accountant.h"
 
-1699072321 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
+1699075894 source:c:\users\komputer\desktop\pp\cpp\financemanager\main.cpp
 	<iostream>
 	"FinanceManager.h"
 
-1699071566 source:c:\users\komputer\desktop\pp\cpp\financemanager\accountant.cpp
+1699072975 source:c:\users\komputer\desktop\pp\cpp\financemanager\accountant.cpp
 	"Accountant.h"
 
-1699072542 c:\users\komputer\desktop\pp\cpp\financemanager\accountant.h
+1699075843 c:\users\komputer\desktop\pp\cpp\financemanager\accountant.h
 	<iostream>
 	<vector>
 	<sstream>

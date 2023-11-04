@@ -92,3 +92,12 @@ void FinanceManager::displayBalanceForCurrentMonth() {
         system("pause");
     }
 }
+
+void FinanceManager::displayBalanceForPreviousMonth() {
+    if (userManager.isUserLoggedIn()) {
+        accountant->displayBalanceForPreviousMonth();
+    } else {
+        cout << "Aby wyswietlic bilans, nalezy sie najpierw zalogowac" << endl;
+        system("pause");
+    }
+}

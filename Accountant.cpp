@@ -122,6 +122,25 @@ void Accountant::showUserIncomes() {
 }
 
 void Accountant::displayBalanceForCurrentMonth() {
+    year_month_day currentDate =  floor<days>(chrono::system_clock::now());
+    displayBalance(currentDate);
+}
+
+void Accountant::displayBalanceForPreviousMonth() {
+    year_month_day currentDate =  floor<days>(chrono::system_clock::now());
+    year_month_day previousMonthDate;
+
+    if (currentDate.month() == date::January) {
+        previousMonthDate = year_month_day{currentDate.year() - years{1}, December, currentDate.day()};
+    } else {
+        previousMonthDate = year_month_day{currentDate.year(), currentDate.month() - months{1}, currentDate.day()};
+    }
+
+    displayBalance(previousMonthDate);
+}
+
+
+void Accountant::displayBalance(year_month_day targetDate) {
 
     float sumIncomes = 0;
     float sumExpenses = 0;
@@ -130,7 +149,6 @@ void Accountant::displayBalanceForCurrentMonth() {
     sort(incomes.begin(), incomes.end(), SupportiveMethods::compareIncomeByDate);
     sort(expenses.begin(), expenses.end(), SupportiveMethods::compareExpenseByDate);
 
-    year_month_day currentDate = floor<days>(chrono::system_clock::now());
 
     cout << endl << "---PRZYCHODY---" << endl << endl;
     for (Income item : incomes) {
@@ -138,7 +156,7 @@ void Accountant::displayBalanceForCurrentMonth() {
         year_month_day itemDate;
         dateStream >> parse("%Y-%m-%d", itemDate);
 
-        if (itemDate.year() == currentDate.year() && itemDate.month() == currentDate.month()) {
+        if (itemDate.year() == targetDate.year() && itemDate.month() == targetDate.month()) {
             printIncomes(item);
             sumIncomes+=item.getAmount();
         }
@@ -149,7 +167,7 @@ void Accountant::displayBalanceForCurrentMonth() {
         year_month_day itemDate;
         dateStream >> parse("%Y-%m-%d", itemDate);
 
-        if (itemDate.year() == currentDate.year() && itemDate.month() == currentDate.month()) {
+        if (itemDate.year() == targetDate.year() && itemDate.month() == targetDate.month()) {
             printExpenses(item);
             sumExpenses+=item.getAmount();
         }
