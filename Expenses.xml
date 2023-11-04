@@ -28,4 +28,11 @@
 <item>rata</item>
 <amount>723.3</amount>
 </expense>
+<expense>
+<expenseId>5</expenseId>
+<idUser>1</idUser>
+<date>2023-11-04</date>
+<item>kredyt</item>
+<amount>6000</amount>
+</expense>
 </expenses>

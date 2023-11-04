@@ -5,6 +5,7 @@
 #include <algorithm>
 #include "date.h"
 #include "Incomes.h"
+#include "Expenses.h"
 
 using namespace std;
 using namespace date;
@@ -22,7 +23,8 @@ class SupportiveMethods {
     static string getCurrentDate();
     static bool isValidDate(string inputDate);
     static string swapCommaToDot(string input);
-    static bool compareByDate(Income a, Income b);
+    static bool compareIncomeByDate(Income a, Income b);
+    static bool compareExpenseByDate(Expense a, Expense b);
 };
 
 #endif

@@ -28,11 +28,11 @@ int main() {
 
             switch (choice) {
             case '1': financeManager.addNewIncome(); break;
-            case '2': financeManager.addNewExpense();break;
-            case '3': financeManager.displayBalanceForCurrentMonth();
+            case '2': financeManager.addNewExpense(); break;
+            case '3': financeManager.displayBalanceForCurrentMonth(); break;
             case '4': break;
             case '5': break;
-            case '6': financeManager.changePasswordLoggedUser();break;
+            case '6': financeManager.changePasswordLoggedUser(); break;
             case '7': financeManager.userLogout(); break;
             default:
                 cout << endl << "Nie ma takiej opcji w menu." << endl << endl;

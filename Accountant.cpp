@@ -81,7 +81,7 @@ Expense Accountant::enterDataNewExpense() {
         } while (!valid);
     }
 
-    cout << "Podaj kategorie przychodu: ";
+    cout << "Podaj kategorie wydatku: ";
     expense.setItem(SupportiveMethods::readLine());
 
     cout << "Podaj kwote: ";
@@ -90,11 +90,18 @@ Expense Accountant::enterDataNewExpense() {
     return expense;
 }
 
-void Accountant:: printData(Income income) {
+void Accountant:: printIncomes(Income income) {
     cout << left;
     cout << "Data: "  << setw (15) <<  income.getDate();
     cout << "Kategoria: "  << setw (15) <<  income.getItem();
     cout << "Kwota: "  <<  setw (15) << income.getAmount() << endl;
+}
+
+void Accountant:: printExpenses(Expense expense) {
+    cout << left;
+    cout << "Data: "  << setw (15) <<  expense.getDate();
+    cout << "Kategoria: "  << setw (15) <<  expense.getItem();
+    cout << "Kwota: "  <<  setw (15) << expense.getAmount() << endl;
 }
 
 void Accountant::showUserIncomes() {
@@ -106,9 +113,9 @@ void Accountant::showUserIncomes() {
         system("pause");
         return;
     }
-    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
+    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareIncomeByDate);
     for (const Income &income : incomes) {
-        printData(income);
+        printIncomes(income);
     }
     cout << endl;
     system("pause");
@@ -116,23 +123,40 @@ void Accountant::showUserIncomes() {
 
 void Accountant::displayBalanceForCurrentMonth() {
 
-    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
-    float sum =0;
+    float sumIncomes = 0;
+    float sumExpenses = 0;
+
+
+    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareIncomeByDate);
+    sort(expenses.begin(), expenses.end(), SupportiveMethods::compareExpenseByDate);
 
     year_month_day currentDate = floor<days>(chrono::system_clock::now());
 
-
+    cout << endl << "---PRZYCHODY---" << endl << endl;
     for (Income item : incomes) {
         istringstream dateStream(item.getDate());
         year_month_day itemDate;
         dateStream >> parse("%Y-%m-%d", itemDate);
 
         if (itemDate.year() == currentDate.year() && itemDate.month() == currentDate.month()) {
-            printData(item);
-            sum+=item.getAmount();
+            printIncomes(item);
+            sumIncomes+=item.getAmount();
         }
     }
-    cout << "Suma przychodow: "<< sum << endl;
+    cout << endl << "---WYDATKI---" << endl << endl;
+    for (Expense item : expenses) {
+        istringstream dateStream(item.getDate());
+        year_month_day itemDate;
+        dateStream >> parse("%Y-%m-%d", itemDate);
+
+        if (itemDate.year() == currentDate.year() && itemDate.month() == currentDate.month()) {
+            printExpenses(item);
+            sumExpenses+=item.getAmount();
+        }
+    }
+    cout << endl << "Suma przychodow: "<< sumIncomes << endl;
+    cout << "Suma wydatkow: "<< sumExpenses << endl;
+    cout << "Bilans miesiaca: "<< (sumIncomes - sumExpenses) << endl << endl;
     system ("pause");
 }
 

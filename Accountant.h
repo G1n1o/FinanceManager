@@ -28,7 +28,8 @@ const int ID_LOGGED_USER;
 
 Income enterDataNewIncome();
 Expense enterDataNewExpense();
-void printData(Income income);
+void printIncomes(Income income);
+void printExpenses(Expense expense);
 
 public:
      Accountant(string fileNameWithIncomes, string fileNameWithExpenses, int idLoggedUser)
