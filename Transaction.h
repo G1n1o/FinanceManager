@@ -1,25 +1,26 @@
-#ifndef EXPENSES_H
-#define EXPENSES_H
+#ifndef TRANSACTION_H
+#define TRANSACTION_H
 
 #include <iostream>
 
+
 using namespace std;
 
-class Expense {
-    int expenseId, idUser;
+class Transaction {
+    int transId, idUser;
     string date;
     string item;
     float amount;
 
 
 public:
-    void setExpenseId (int newExpenseId);
+    void setTransId (int newTransId);
     void setIdUser (int newIdUser);
     void setDate (string newDate);
     void setItem (string newItem);
     void setAmount (float newAmount);
 
-    int getExpenseId();
+    int getTransId();
     int getIdUser();
     string getDate();
     string getItem();

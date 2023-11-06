@@ -65,18 +65,7 @@ string SupportiveMethods::swapCommaToDot(string input) {
 }
 
 
-bool SupportiveMethods::compareIncomeByDate(Income a, Income b) {
-
-    istringstream dateStreamA(a.getDate());
-    istringstream dateStreamB(b.getDate());
-    year_month_day dateA, dateB;
-    dateStreamA >> parse("%F", dateA);
-    dateStreamB >> parse("%F", dateB);
-
-    return dateA < dateB;
-}
-
-bool SupportiveMethods::compareExpenseByDate(Expense a, Expense b) {
+bool SupportiveMethods::compareByDate(Transaction a, Transaction b) {
 
     istringstream dateStreamA(a.getDate());
     istringstream dateStreamB(b.getDate());

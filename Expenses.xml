@@ -42,4 +42,11 @@
 <item>alko</item>
 <amount>225.25</amount>
 </expense>
+<expense>
+<expenseId>7</expenseId>
+<idUser>1</idUser>
+<date>2023-11-06</date>
+<item>mandat</item>
+<amount>900.01</amount>
+</expense>
 </expenses>

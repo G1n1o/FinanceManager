@@ -70,4 +70,11 @@
 <item>proba</item>
 <amount>222.22</amount>
 </income>
+<income>
+<incomeId>11</incomeId>
+<idUser>1</idUser>
+<date>2023-11-06</date>
+<item>salary</item>
+<amount>550.5</amount>
+</income>
 </incomes>

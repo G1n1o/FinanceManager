@@ -8,8 +8,7 @@
 #include <string>
 #include <iomanip>
 #include "date.h"
-#include "Incomes.h"
-#include "Expenses.h"
+#include "Transaction.h"
 #include "FileWithIncomes.h"
 #include "FileWithExpenses.h"
 
@@ -21,15 +20,14 @@ class Accountant {
 
 FileWithIncomes fileWithIncomes;
 FileWithExpenses fileWithExpenses;
-vector <Income> incomes;
-vector <Expense> expenses;
+vector <Transaction> incomes;
+vector <Transaction> expenses;
 
 const int ID_LOGGED_USER;
 
-Income enterDataNewIncome();
-Expense enterDataNewExpense();
-void printIncomes(Income income);
-void printExpenses(Expense expense);
+Transaction enterDataNewIncome();
+Transaction enterDataNewExpense();
+void printTransaction(Transaction trans);
 void displayBalance(year_month_day targetDate);
 void showResult (float sumIncomes, float sumExpenses);
 string dateCheck(string &date);
