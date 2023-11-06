@@ -5,3 +5,6 @@ AddressBook_object*
 Users.xml
 Incomes.xml
 Expenses.xml
+*.cbp
+*.layout
+*.depend
