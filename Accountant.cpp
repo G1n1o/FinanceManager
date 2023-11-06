@@ -106,8 +106,8 @@ void Accountant::displayBalance(date::year_month_day targetDate) {
     system("cls");
     std::cout << " >>> BILANS <<<" << std::endl << std::endl;
 
-    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
-    sort(expenses.begin(), expenses.end(), SupportiveMethods::compareByDate);
+    std::sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
+    std::sort(expenses.begin(), expenses.end(), SupportiveMethods::compareByDate);
 
 
     std::cout << std::endl << "---PRZYCHODY---" << std::endl << std::endl;
@@ -144,8 +144,8 @@ void Accountant::displayBalanceInDateRange () {
     system("cls");
     std::cout << " >>> BILANS <<<" << std::endl << std::endl;
 
-    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
-    sort(expenses.begin(), expenses.end(), SupportiveMethods::compareByDate);
+    std::sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
+    std::sort(expenses.begin(), expenses.end(), SupportiveMethods::compareByDate);
 
     std::cout << "Podaj date poczatkowa w formacie RRRR-MM-DD: ";
     startDateStr = SupportiveMethods::readLine();
