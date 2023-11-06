@@ -27,16 +27,24 @@ vector <Expense> expenses;
 const int ID_LOGGED_USER;
 
 Income enterDataNewIncome();
-void printData(Income income);
+Expense enterDataNewExpense();
+void printIncomes(Income income);
+void printExpenses(Expense expense);
+void displayBalance(year_month_day targetDate);
+void showResult (float sumIncomes, float sumExpenses);
+string dateCheck(string &date);
 
 public:
      Accountant(string fileNameWithIncomes, string fileNameWithExpenses, int idLoggedUser)
         : fileWithIncomes(fileNameWithIncomes),fileWithExpenses(fileNameWithExpenses), ID_LOGGED_USER(idLoggedUser) {
        incomes = fileWithIncomes.loadIncomesLoggedUserFile(ID_LOGGED_USER);
-       // expenses = fileWithExpenses.loadExpensesLoggedUserFile(ID_LOGGED_USER);
+       expenses = fileWithExpenses.loadExpensesLoggedUserFile(ID_LOGGED_USER);
     };
     void addNewIncome();
-    void showUserIncomes();
+    void addNewExpense();
+    void displayBalanceForCurrentMonth();
+    void displayBalanceForPreviousMonth();
+    void displayBalanceInDateRange();
 
 };
 

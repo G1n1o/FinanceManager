@@ -6,14 +6,6 @@ string SupportiveMethods::readLine() {
     return input;
 }
 
-
-string SupportiveMethods::convertFromIntToString(int number) {
-    ostringstream ss;
-    ss << number;
-    string str = ss.str();
-    return str;
-}
-
 string SupportiveMethods::convertFromFloatToString(float amount) {
     ostringstream ss;
     ss << amount;
@@ -27,14 +19,6 @@ string SupportiveMethods::swapFirstLetterForLargeOtherForSmall(string text) {
         text[0] = toupper(text[0]);
     }
     return text;
-}
-
-int SupportiveMethods::convertFromStringToInt(string number) {
-    int numberInt;
-    istringstream iss(number);
-    iss >> numberInt;
-
-    return numberInt;
 }
 
 char SupportiveMethods::readSign() {
@@ -52,37 +36,25 @@ char SupportiveMethods::readSign() {
     return sign;
 }
 
-int SupportiveMethods::readNumber() {
-    string input;
-    int number;
-
-    while (true) {
-        getline(cin,input);
-
-        stringstream myStream(input);
-        if (myStream >> number) {
-            break;
-        }
-        cout << "To nie jest liczba. Wpisz ponownie: " << endl;
-    }
-
-    return number;
-}
-
 string SupportiveMethods::getCurrentDate() {
-    auto current_date = floor<days>(chrono::system_clock::now());
-    return format("%F", current_date);
+    auto currentDate = floor<days>(chrono::system_clock::now());
+    return format("%F", currentDate);
 }
-bool SupportiveMethods::isValidDate(string inputDate) {
-    date::year_month_day parsedDate;
-    istringstream dateStream(inputDate);
 
-    if (dateStream >> date::parse("%F", parsedDate)) {
-        return true;
-    } else {
-        return false;
+bool SupportiveMethods::isValidDate(string inputDate) {
+    if (inputDate.length() == 10) {
+        year_month_day parsedDate;
+        istringstream dateStream(inputDate);
+
+        if (dateStream >> date::parse("%F", parsedDate)) {
+            return true;
+        } else {
+            return false;
+        }
     }
+    return false;
 }
+
 string SupportiveMethods::swapCommaToDot(string input) {
     for (char& c : input) {
         if (c == ',') {
@@ -90,5 +62,35 @@ string SupportiveMethods::swapCommaToDot(string input) {
         }
     }
     return input;
+}
+
+
+bool SupportiveMethods::compareIncomeByDate(Income a, Income b) {
+
+    istringstream dateStreamA(a.getDate());
+    istringstream dateStreamB(b.getDate());
+    year_month_day dateA, dateB;
+    dateStreamA >> parse("%F", dateA);
+    dateStreamB >> parse("%F", dateB);
+
+    return dateA < dateB;
+}
+
+bool SupportiveMethods::compareExpenseByDate(Expense a, Expense b) {
+
+    istringstream dateStreamA(a.getDate());
+    istringstream dateStreamB(b.getDate());
+    year_month_day dateA, dateB;
+    dateStreamA >> parse("%F", dateA);
+    dateStreamB >> parse("%F", dateB);
+
+    return dateA < dateB;
+}
+
+year_month_day SupportiveMethods::convertFromStringToDate(string input) {
+    istringstream dateStream(input);
+    year_month_day date;
+    dateStream >> parse("%Y-%m-%d", date);
+    return date;
 }
 

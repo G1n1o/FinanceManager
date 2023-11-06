@@ -32,7 +32,11 @@ public:
     char selectOptionFromUserMenu();
     bool isUserLoggedin();
     void addNewIncome();
+    void addNewExpense();
     void showUserIncomes();
+    void displayBalanceForCurrentMonth();
+    void displayBalanceForPreviousMonth();
+    void displayBalanceInDateRange();
 
 
 };

@@ -1,7 +1,6 @@
 #include "FileWithIncomes.h"
 
 bool FileWithIncomes::addIncomeToFile(Income income) {
-    string amount = "";
     CMarkup xml;
 
     bool fileExists = xml.Load(getFileName());
