@@ -1,7 +1,7 @@
 #include "Accountant.h"
 
 void Accountant::addNewIncome() {
-    Income income;
+    Transaction income;
 
     system("cls");
     cout << " >>> DODAWANIE PPRZYCHODU <<<" << endl << endl;
@@ -12,7 +12,7 @@ void Accountant::addNewIncome() {
     system("pause");
 }
 void Accountant::addNewExpense() {
-    Expense expense;
+    Transaction expense;
 
     system("cls");
     cout << " >>> DODAWANIE WYDATKU <<<" << endl << endl;
@@ -23,11 +23,11 @@ void Accountant::addNewExpense() {
     system("pause");
 }
 
-Income Accountant::enterDataNewIncome() {
-    Income income;
+Transaction Accountant::enterDataNewIncome() {
+    Transaction income;
     string date = "", amount= "";
 
-    income.setIncomeId(fileWithIncomes.getIdLastIncome() + 1);
+    income.setTransId(fileWithIncomes.getIdLastIncome() + 1);
     income.setIdUser(ID_LOGGED_USER);
 
     cout << "Podaj date w formacie RRRR-MM-DD, jesli chcesz wprowadzic aktualna date wpisz 't': ";
@@ -47,11 +47,11 @@ Income Accountant::enterDataNewIncome() {
 
     return income;
 }
-Expense Accountant::enterDataNewExpense() {
-    Expense expense;
+Transaction Accountant::enterDataNewExpense() {
+    Transaction expense;
     string date = "", amount= "";
 
-    expense.setExpenseId(fileWithExpenses.getIdLastExpense() + 1);
+    expense.setTransId(fileWithExpenses.getIdLastExpense() + 1);
     expense.setIdUser(ID_LOGGED_USER);
 
     cout << "Podaj date w formacie RRRR-MM-DD, jesli chcesz wprowadzic aktualna date wpisz 't': ";
@@ -72,18 +72,11 @@ Expense Accountant::enterDataNewExpense() {
     return expense;
 }
 
-void Accountant:: printIncomes(Income income) {
+void Accountant:: printTransaction(Transaction trans) {
     cout << left;
-    cout << "Data: "  << setw (15) <<  income.getDate();
-    cout << "Kategoria: "  << setw (15) <<  income.getItem();
-    cout << "Kwota: "  <<  setw (15) << income.getAmount() << endl;
-}
-
-void Accountant:: printExpenses(Expense expense) {
-    cout << left;
-    cout << "Data: "  << setw (15) <<  expense.getDate();
-    cout << "Kategoria: "  << setw (15) <<  expense.getItem();
-    cout << "Kwota: "  <<  setw (15) << expense.getAmount() << endl;
+    cout << "Data: "  << setw (15) <<  trans.getDate();
+    cout << "Kategoria: "  << setw (15) <<  trans.getItem();
+    cout << "Kwota: "  <<  setw (15) << trans.getAmount() << endl;
 }
 
 void Accountant::displayBalanceForCurrentMonth() {
@@ -113,27 +106,27 @@ void Accountant::displayBalance(year_month_day targetDate) {
     system("cls");
     cout << " >>> BILANS <<<" << endl << endl;
 
-    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareIncomeByDate);
-    sort(expenses.begin(), expenses.end(), SupportiveMethods::compareExpenseByDate);
+    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
+    sort(expenses.begin(), expenses.end(), SupportiveMethods::compareByDate);
 
 
     cout << endl << "---PRZYCHODY---" << endl << endl;
-    for (Income item : incomes) {
+    for (Transaction item : incomes) {
         year_month_day itemDate = SupportiveMethods::convertFromStringToDate(item.getDate());
 
         if (itemDate.year() == targetDate.year() && itemDate.month() == targetDate.month()) {
-            printIncomes(item);
+            printTransaction(item);
             sumIncomes+=item.getAmount();
         }
     }
 
     cout << endl << "---WYDATKI---" << endl << endl;
 
-    for (Expense item : expenses) {
+    for (Transaction item : expenses) {
          year_month_day itemDate = SupportiveMethods::convertFromStringToDate(item.getDate());
 
         if (itemDate.year() == targetDate.year() && itemDate.month() == targetDate.month()) {
-            printExpenses(item);
+            printTransaction(item);
             sumExpenses+=item.getAmount();
         }
     }
@@ -151,8 +144,8 @@ void Accountant::displayBalanceInDateRange () {
     system("cls");
     cout << " >>> BILANS <<<" << endl << endl;
 
-    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareIncomeByDate);
-    sort(expenses.begin(), expenses.end(), SupportiveMethods::compareExpenseByDate);
+    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareByDate);
+    sort(expenses.begin(), expenses.end(), SupportiveMethods::compareByDate);
 
     cout << "Podaj date poczatkowa w formacie RRRR-MM-DD: ";
     startDateStr = SupportiveMethods::readLine();
@@ -167,21 +160,21 @@ void Accountant::displayBalanceInDateRange () {
 
     cout << endl << "---PRZYCHODY---" << endl << endl;
 
-    for (Income item : incomes) {
+    for (Transaction item : incomes) {
          year_month_day itemDate = SupportiveMethods::convertFromStringToDate(item.getDate());
 
         if (itemDate >= startDate && itemDate <= endDate) {
-            printIncomes(item);
+            printTransaction(item);
             sumIncomes+=item.getAmount();
         }
     }
      cout << endl << "---WYDATKI---" << endl << endl;
 
-    for (Expense item : expenses) {
+    for (Transaction item : expenses) {
         year_month_day itemDate = SupportiveMethods::convertFromStringToDate(item.getDate());
 
         if (itemDate >= startDate && itemDate <= endDate) {
-            printExpenses(item);
+            printTransaction(item);
             sumExpenses+=item.getAmount();
         }
     }

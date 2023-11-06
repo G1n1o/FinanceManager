@@ -1,6 +1,6 @@
 #include "FileWithIncomes.h"
 
-bool FileWithIncomes::addIncomeToFile(Income income) {
+bool FileWithIncomes::addIncomeToFile(Transaction income) {
     CMarkup xml;
 
     bool fileExists = xml.Load(getFileName());
@@ -13,7 +13,7 @@ bool FileWithIncomes::addIncomeToFile(Income income) {
     xml.IntoElem();
     xml.AddElem( "income" );
     xml.IntoElem();
-    xml.AddElem("incomeId", income.getIncomeId());
+    xml.AddElem("incomeId", income.getTransId());
     xml.AddElem("idUser", income.getIdUser());
     xml.AddElem("date", income.getDate() );
     xml.AddElem("item", income.getItem());
@@ -28,9 +28,9 @@ int FileWithIncomes::getIdLastIncome() {
     return idLastIncome;
 }
 
-vector <Income> FileWithIncomes::loadIncomesLoggedUserFile(int idLoggedUser) {
-    vector <Income> incomes;
-    Income income;
+vector <Transaction> FileWithIncomes::loadIncomesLoggedUserFile(int idLoggedUser) {
+    vector <Transaction> incomes;
+    Transaction income;
 
     CMarkup xml;
     if (xml.Load(getFileName())) {
@@ -39,8 +39,8 @@ vector <Income> FileWithIncomes::loadIncomesLoggedUserFile(int idLoggedUser) {
         while (xml.FindElem("income")) {
             xml.IntoElem();
             xml.FindElem("incomeId");
-            income.setIncomeId(stoi(xml.GetData()));
-            idLastIncome = income.getIncomeId();
+            income.setTransId(stoi(xml.GetData()));
+            idLastIncome = income.getTransId();
             xml.FindElem("idUser");
             string idUserStr = xml.GetData();
             if (idLoggedUser == stoi(idUserStr)) {

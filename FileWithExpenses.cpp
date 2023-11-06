@@ -1,6 +1,6 @@
 #include "FileWithExpenses.h"
 
-bool FileWithExpenses::addExpenseToFile(Expense expense) {
+bool FileWithExpenses::addExpenseToFile(Transaction expense) {
     CMarkup xml;
 
     bool fileExists = xml.Load(getFileName());
@@ -13,7 +13,7 @@ bool FileWithExpenses::addExpenseToFile(Expense expense) {
     xml.IntoElem();
     xml.AddElem( "expense" );
     xml.IntoElem();
-    xml.AddElem("expenseId", expense.getExpenseId());
+    xml.AddElem("expenseId", expense.getTransId());
     xml.AddElem("idUser", expense.getIdUser());
     xml.AddElem("date", expense.getDate() );
     xml.AddElem("item", expense.getItem());
@@ -28,9 +28,9 @@ int FileWithExpenses::getIdLastExpense() {
     return idLastExpense;
 }
 
-vector <Expense> FileWithExpenses::loadExpensesLoggedUserFile(int idLoggedUser) {
-    vector <Expense> expenses;
-    Expense expense;
+vector <Transaction> FileWithExpenses::loadExpensesLoggedUserFile(int idLoggedUser) {
+    vector <Transaction> expenses;
+    Transaction expense;
 
     CMarkup xml;
     if (xml.Load(getFileName())) {
@@ -39,8 +39,8 @@ vector <Expense> FileWithExpenses::loadExpensesLoggedUserFile(int idLoggedUser) 
         while (xml.FindElem("expense")) {
             xml.IntoElem();
             xml.FindElem("expenseId");
-            expense.setExpenseId(stoi(xml.GetData()));
-            idLastExpense = expense.getExpenseId();
+            expense.setTransId(stoi(xml.GetData()));
+            idLastExpense = expense.getTransId();
             xml.FindElem("idUser");
             string idUserStr = xml.GetData();
             if (idLoggedUser == stoi(idUserStr)) {

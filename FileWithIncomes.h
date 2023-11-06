@@ -7,7 +7,7 @@
 #include <filesystem>
 #include <sstream>
 #include "Markup.h"
-#include "Incomes.h"
+#include "Transaction.h"
 #include "SupportiveMethods.h"
 #include "TextFile.h"
 
@@ -20,8 +20,8 @@ public:
      FileWithIncomes(string fileNameWithIncomes) : TextFile(fileNameWithIncomes) {
           idLastIncome = 0;
     };
-    vector <Income> loadIncomesLoggedUserFile(int IdLoggedUser);
-    bool addIncomeToFile(Income income);
+    vector <Transaction> loadIncomesLoggedUserFile(int IdLoggedUser);
+    bool addIncomeToFile(Transaction income);
     int getIdLastIncome();
 
 };
