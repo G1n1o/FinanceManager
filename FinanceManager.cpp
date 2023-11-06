@@ -101,3 +101,14 @@ void FinanceManager::displayBalanceForPreviousMonth() {
         system("pause");
     }
 }
+
+void FinanceManager::displayBalanceInDateRange() {
+    if (userManager.isUserLoggedIn()) {
+        accountant->displayBalanceInDateRange();
+    } else {
+        cout << "Aby wyswietlic bilans, nalezy sie najpierw zalogowac" << endl;
+        system("pause");
+    }
+}
+
+

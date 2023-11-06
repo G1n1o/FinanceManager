@@ -31,6 +31,8 @@ Expense enterDataNewExpense();
 void printIncomes(Income income);
 void printExpenses(Expense expense);
 void displayBalance(year_month_day targetDate);
+void showResult (float sumIncomes, float sumExpenses);
+string dateCheck(string &date);
 
 public:
      Accountant(string fileNameWithIncomes, string fileNameWithExpenses, int idLoggedUser)
@@ -40,9 +42,9 @@ public:
     };
     void addNewIncome();
     void addNewExpense();
-    void showUserIncomes();
     void displayBalanceForCurrentMonth();
     void displayBalanceForPreviousMonth();
+    void displayBalanceInDateRange();
 
 };
 

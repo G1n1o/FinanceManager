@@ -9,8 +9,7 @@ int main() {
     FinanceManager financeManager("Users.xml", "Incomes.xml", "Expenses.xml");
 
     char choice;
-    financeManager.showAllUsers();
-    while (true) {
+     while (true) {
         if (!financeManager.isUserLoggedin()) {
             choice = financeManager.selectOptionFromGeneralMenu();
 
@@ -31,7 +30,7 @@ int main() {
             case '2': financeManager.addNewExpense(); break;
             case '3': financeManager.displayBalanceForCurrentMonth(); break;
             case '4': financeManager.displayBalanceForPreviousMonth(); break;
-            case '5': break;
+            case '5': financeManager.displayBalanceInDateRange();break;
             case '6': financeManager.changePasswordLoggedUser(); break;
             case '7': financeManager.userLogout(); break;
             default:

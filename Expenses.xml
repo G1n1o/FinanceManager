@@ -35,4 +35,11 @@
 <item>kredyt</item>
 <amount>6000</amount>
 </expense>
+<expense>
+<expenseId>6</expenseId>
+<idUser>1</idUser>
+<date>2023-11-05</date>
+<item>alko</item>
+<amount>225.25</amount>
+</expense>
 </expenses>

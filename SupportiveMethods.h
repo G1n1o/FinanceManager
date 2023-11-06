@@ -22,6 +22,7 @@ class SupportiveMethods {
     static string swapCommaToDot(string input);
     static bool compareIncomeByDate(Income a, Income b);
     static bool compareExpenseByDate(Expense a, Expense b);
+    static year_month_day convertFromStringToDate (string input);
 };
 
 #endif

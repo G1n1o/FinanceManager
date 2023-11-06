@@ -26,8 +26,6 @@ void Accountant::addNewExpense() {
 Income Accountant::enterDataNewIncome() {
     Income income;
     string date = "", amount= "";
-    bool valid = false;
-
 
     income.setIncomeId(fileWithIncomes.getIdLastIncome() + 1);
     income.setIdUser(ID_LOGGED_USER);
@@ -37,15 +35,8 @@ Income Accountant::enterDataNewIncome() {
     if (date == "t") {
         income.setDate(SupportiveMethods::getCurrentDate());
     }  else {
-        do {
-            if (SupportiveMethods::isValidDate(date)) {
-                income.setDate(date);
-                valid = true;
-            } else {
-                cout << "Wprowdzono bledna date, podaj date w formacie RRRR-MM-DD: ";
-                date = SupportiveMethods::readLine();
-            }
-        } while (!valid);
+        dateCheck(date);
+        income.setDate(date);
     }
 
     cout << "Podaj kategorie przychodu: ";
@@ -59,8 +50,6 @@ Income Accountant::enterDataNewIncome() {
 Expense Accountant::enterDataNewExpense() {
     Expense expense;
     string date = "", amount= "";
-    bool valid = false;
-
 
     expense.setExpenseId(fileWithExpenses.getIdLastExpense() + 1);
     expense.setIdUser(ID_LOGGED_USER);
@@ -70,15 +59,8 @@ Expense Accountant::enterDataNewExpense() {
     if (date == "t") {
         expense.setDate(SupportiveMethods::getCurrentDate());
     }  else {
-        do {
-            if (SupportiveMethods::isValidDate(date)) {
-                expense.setDate(date);
-                valid = true;
-            } else {
-                cout << "Wprowdzono bledna date, podaj date w formacie RRRR-MM-DD: ";
-                date = SupportiveMethods::readLine();
-            }
-        } while (!valid);
+        dateCheck(date);
+        expense.setDate(date);
     }
 
     cout << "Podaj kategorie wydatku: ";
@@ -102,23 +84,6 @@ void Accountant:: printExpenses(Expense expense) {
     cout << "Data: "  << setw (15) <<  expense.getDate();
     cout << "Kategoria: "  << setw (15) <<  expense.getItem();
     cout << "Kwota: "  <<  setw (15) << expense.getAmount() << endl;
-}
-
-void Accountant::showUserIncomes() {
-    system("cls");
-    cout << " >>> BILANS <<<" << endl << endl;
-
-    if (incomes.empty()) {
-        cout << endl<< "Brak zapisanych danych" << endl << endl;
-        system("pause");
-        return;
-    }
-    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareIncomeByDate);
-    for (const Income &income : incomes) {
-        printIncomes(income);
-    }
-    cout << endl;
-    system("pause");
 }
 
 void Accountant::displayBalanceForCurrentMonth() {
@@ -145,6 +110,8 @@ void Accountant::displayBalance(year_month_day targetDate) {
     float sumIncomes = 0;
     float sumExpenses = 0;
 
+    system("cls");
+    cout << " >>> BILANS <<<" << endl << endl;
 
     sort(incomes.begin(), incomes.end(), SupportiveMethods::compareIncomeByDate);
     sort(expenses.begin(), expenses.end(), SupportiveMethods::compareExpenseByDate);
@@ -152,29 +119,95 @@ void Accountant::displayBalance(year_month_day targetDate) {
 
     cout << endl << "---PRZYCHODY---" << endl << endl;
     for (Income item : incomes) {
-        istringstream dateStream(item.getDate());
-        year_month_day itemDate;
-        dateStream >> parse("%Y-%m-%d", itemDate);
+        year_month_day itemDate = SupportiveMethods::convertFromStringToDate(item.getDate());
 
         if (itemDate.year() == targetDate.year() && itemDate.month() == targetDate.month()) {
             printIncomes(item);
             sumIncomes+=item.getAmount();
         }
     }
+
     cout << endl << "---WYDATKI---" << endl << endl;
+
     for (Expense item : expenses) {
-        istringstream dateStream(item.getDate());
-        year_month_day itemDate;
-        dateStream >> parse("%Y-%m-%d", itemDate);
+         year_month_day itemDate = SupportiveMethods::convertFromStringToDate(item.getDate());
 
         if (itemDate.year() == targetDate.year() && itemDate.month() == targetDate.month()) {
             printExpenses(item);
             sumExpenses+=item.getAmount();
         }
     }
+       showResult(sumIncomes, sumExpenses);
+}
+
+void Accountant::displayBalanceInDateRange () {
+
+    float sumIncomes = 0;
+    float sumExpenses = 0;
+    string startDateStr, endDateStr;
+    year_month_day startDate;
+    year_month_day endDate;
+
+    system("cls");
+    cout << " >>> BILANS <<<" << endl << endl;
+
+    sort(incomes.begin(), incomes.end(), SupportiveMethods::compareIncomeByDate);
+    sort(expenses.begin(), expenses.end(), SupportiveMethods::compareExpenseByDate);
+
+    cout << "Podaj date poczatkowa w formacie RRRR-MM-DD: ";
+    startDateStr = SupportiveMethods::readLine();
+    dateCheck(startDateStr);
+    startDate = SupportiveMethods::convertFromStringToDate(startDateStr);
+
+    cout << "Podaj date koncowa w formacie RRRR-MM-DD: ";
+
+    endDateStr = SupportiveMethods::readLine();
+    dateCheck(endDateStr);
+    endDate = SupportiveMethods::convertFromStringToDate(endDateStr);
+
+    cout << endl << "---PRZYCHODY---" << endl << endl;
+
+    for (Income item : incomes) {
+         year_month_day itemDate = SupportiveMethods::convertFromStringToDate(item.getDate());
+
+        if (itemDate >= startDate && itemDate <= endDate) {
+            printIncomes(item);
+            sumIncomes+=item.getAmount();
+        }
+    }
+     cout << endl << "---WYDATKI---" << endl << endl;
+
+    for (Expense item : expenses) {
+        year_month_day itemDate = SupportiveMethods::convertFromStringToDate(item.getDate());
+
+        if (itemDate >= startDate && itemDate <= endDate) {
+            printExpenses(item);
+            sumExpenses+=item.getAmount();
+        }
+    }
+
+    showResult(sumIncomes, sumExpenses);
+}
+
+void Accountant::showResult (float sumIncomes, float sumExpenses) {
     cout << endl << "Suma przychodow: "<< sumIncomes << endl;
     cout << "Suma wydatkow: "<< sumExpenses << endl;
     cout << "Bilans miesiaca: "<< (sumIncomes - sumExpenses) << endl << endl;
     system ("pause");
+}
+
+string Accountant::dateCheck(string &date) {
+bool valid = false;
+
+do {
+        if (SupportiveMethods::isValidDate(date)) {
+            valid = true;
+        } else {
+            cout << "Wprowdzono bledna date, podaj date w formacie RRRR-MM-DD: ";
+            date = SupportiveMethods::readLine();
+        }
+    } while (!valid);
+
+return date;
 }
 

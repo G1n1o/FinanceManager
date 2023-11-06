@@ -36,6 +36,7 @@ public:
     void showUserIncomes();
     void displayBalanceForCurrentMonth();
     void displayBalanceForPreviousMonth();
+    void displayBalanceInDateRange();
 
 
 };

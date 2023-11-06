@@ -42,15 +42,19 @@ string SupportiveMethods::getCurrentDate() {
 }
 
 bool SupportiveMethods::isValidDate(string inputDate) {
-    date::year_month_day parsedDate;
-    istringstream dateStream(inputDate);
+    if (inputDate.length() == 10) {
+        year_month_day parsedDate;
+        istringstream dateStream(inputDate);
 
-    if (dateStream >> date::parse("%F", parsedDate)) {
-        return true;
-    } else {
-        return false;
+        if (dateStream >> date::parse("%F", parsedDate)) {
+            return true;
+        } else {
+            return false;
+        }
     }
+    return false;
 }
+
 string SupportiveMethods::swapCommaToDot(string input) {
     for (char& c : input) {
         if (c == ',') {
@@ -82,3 +86,11 @@ bool SupportiveMethods::compareExpenseByDate(Expense a, Expense b) {
 
     return dateA < dateB;
 }
+
+year_month_day SupportiveMethods::convertFromStringToDate(string input) {
+    istringstream dateStream(input);
+    year_month_day date;
+    dateStream >> parse("%Y-%m-%d", date);
+    return date;
+}
+
