@@ -13,27 +13,24 @@
 #include "FileWithExpenses.h"
 
 
-using namespace std;
-using namespace date;
-
 class Accountant {
 
 FileWithIncomes fileWithIncomes;
 FileWithExpenses fileWithExpenses;
-vector <Transaction> incomes;
-vector <Transaction> expenses;
+std::vector <Transaction> incomes;
+std::vector <Transaction> expenses;
 
 const int ID_LOGGED_USER;
 
 Transaction enterDataNewIncome();
 Transaction enterDataNewExpense();
 void printTransaction(Transaction trans);
-void displayBalance(year_month_day targetDate);
+void displayBalance(date::year_month_day targetDate);
 void showResult (float sumIncomes, float sumExpenses);
-string dateCheck(string &date);
+std::string dateCheck(std::string &date);
 
 public:
-     Accountant(string fileNameWithIncomes, string fileNameWithExpenses, int idLoggedUser)
+     Accountant(std::string fileNameWithIncomes, std::string fileNameWithExpenses, int idLoggedUser)
         : fileWithIncomes(fileNameWithIncomes),fileWithExpenses(fileNameWithExpenses), ID_LOGGED_USER(idLoggedUser) {
        incomes = fileWithIncomes.loadIncomesLoggedUserFile(ID_LOGGED_USER);
        expenses = fileWithExpenses.loadExpensesLoggedUserFile(ID_LOGGED_USER);

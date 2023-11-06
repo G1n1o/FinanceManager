@@ -8,13 +8,11 @@
 #include "TextFile.h"
 
 
-using namespace std;
-
 class FileWithUsersData : public TextFile {
 
 public:
-    FileWithUsersData(string fileNameWithUsers) : TextFile(fileNameWithUsers) {};
-    vector <User> readUsersFromFile();
+    FileWithUsersData(std::string fileNameWithUsers) : TextFile(fileNameWithUsers) {};
+    std::vector <User> readUsersFromFile();
     void saveUserDataInFile(User user);
-    void saveNewPasswordInFile(string password, int idLoggedUser);
+    void saveNewPasswordInFile(std::string password, int idLoggedUser);
 };

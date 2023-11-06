@@ -5,30 +5,30 @@ void User::setIdUser(int newIdUser) {
         idUser = newIdUser;
     }
 }
-void User::setLogin (string newLogin) {
+void User::setLogin (std::string newLogin) {
     login = newLogin;
 }
-void User::setPassword (string newPassword) {
+void User::setPassword (std::string newPassword) {
     password = newPassword;
 }
-void User::setName (string newName) {
+void User::setName (std::string newName) {
     name = newName;
 }
-void User::setSurname(string newSurname) {
+void User::setSurname(std::string newSurname) {
     surname = newSurname;
 }
 int User::getIdUser() {
     return idUser;
 }
-string User::getLogin() {
+std::string User::getLogin() {
     return login;
 }
-string User::getPassword() {
+std::string User::getPassword() {
     return password;
 }
-string User::getName() {
+std::string User::getName() {
     return name;
 }
-string User::getSurname() {
+std::string User::getSurname() {
     return surname;
 }

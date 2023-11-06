@@ -6,21 +6,18 @@
 #include "date.h"
 #include "Transaction.h"
 
-using namespace std;
-using namespace date;
-
 class SupportiveMethods {
 
     public:
-    static string readLine();
-    static string convertFromFloatToString(float amount);
-    static string swapFirstLetterForLargeOtherForSmall(string text);
+    static std::string readLine();
+    static std::string convertFromFloatToString(float amount);
+    static std::string swapFirstLetterForLargeOtherForSmall(std::string text);
     static char readSign();
-    static string getCurrentDate();
-    static bool isValidDate(string inputDate);
-    static string swapCommaToDot(string input);
+    static std::string getCurrentDate();
+    static bool isValidDate(std::string inputDate);
+    static std::string swapCommaToDot(std::string input);
     static bool compareByDate(Transaction a, Transaction b);
-    static year_month_day convertFromStringToDate (string input);
+    static date::year_month_day convertFromStringToDate (std::string input);
 };
 
 #endif

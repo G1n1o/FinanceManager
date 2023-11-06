@@ -28,8 +28,8 @@ int FileWithExpenses::getIdLastExpense() {
     return idLastExpense;
 }
 
-vector <Transaction> FileWithExpenses::loadExpensesLoggedUserFile(int idLoggedUser) {
-    vector <Transaction> expenses;
+std::vector <Transaction> FileWithExpenses::loadExpensesLoggedUserFile(int idLoggedUser) {
+    std::vector <Transaction> expenses;
     Transaction expense;
 
     CMarkup xml;
@@ -42,7 +42,7 @@ vector <Transaction> FileWithExpenses::loadExpensesLoggedUserFile(int idLoggedUs
             expense.setTransId(stoi(xml.GetData()));
             idLastExpense = expense.getTransId();
             xml.FindElem("idUser");
-            string idUserStr = xml.GetData();
+            std::string idUserStr = xml.GetData();
             if (idLoggedUser == stoi(idUserStr)) {
                 expense.setIdUser(stoi(idUserStr));
                 xml.FindElem("date");
@@ -60,7 +60,7 @@ vector <Transaction> FileWithExpenses::loadExpensesLoggedUserFile(int idLoggedUs
         xml.OutOfElem();
 
     } else {
-        cout << "Nie udalo sie zaladowac pliku" << endl;
+        std::cout << "Nie udalo sie zaladowac pliku" << std::endl;
     }
     return expenses;
 }

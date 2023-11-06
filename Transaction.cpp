@@ -10,10 +10,10 @@ void Transaction::setIdUser (int newIdUser) {
         idUser = newIdUser;
     }
 }
-void Transaction::setDate (string newDate) {
+void Transaction::setDate (std::string newDate) {
     date = newDate;
 }
-void Transaction::setItem (string newItem) {
+void Transaction::setItem (std::string newItem) {
    item = newItem;
 }
 void Transaction::setAmount (float newAmount) {
@@ -26,10 +26,10 @@ int Transaction::getTransId() {
 int Transaction::getIdUser() {
     return idUser;
 }
-string Transaction::getDate() {
+std::string Transaction::getDate() {
     return date;
 }
-string Transaction::getItem() {
+std::string Transaction::getItem() {
     return item;
 }
 float Transaction::getAmount() {

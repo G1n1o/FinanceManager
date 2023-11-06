@@ -11,16 +11,15 @@
 #include "SupportiveMethods.h"
 #include "TextFile.h"
 
-using namespace std;
 
 class FileWithExpenses : public TextFile {
     int idLastExpense;
 
 public:
-    FileWithExpenses(string fileNameWithExpenses) : TextFile(fileNameWithExpenses) {
+    FileWithExpenses(std::string fileNameWithExpenses) : TextFile(fileNameWithExpenses) {
         idLastExpense = 0;
     };
-    vector <Transaction> loadExpensesLoggedUserFile(int IdLoggedUser);
+    std::vector <Transaction> loadExpensesLoggedUserFile(int IdLoggedUser);
     bool addExpenseToFile(Transaction expense);
     int getIdLastExpense();
 

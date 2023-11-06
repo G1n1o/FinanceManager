@@ -1,19 +1,19 @@
 #include "SupportiveMethods.h"
 
-string SupportiveMethods::readLine() {
-    string input;
-    getline(cin, input);
+std::string SupportiveMethods::readLine() {
+    std::string input;
+    getline(std::cin, input);
     return input;
 }
 
-string SupportiveMethods::convertFromFloatToString(float amount) {
-    ostringstream ss;
+std::string SupportiveMethods::convertFromFloatToString(float amount) {
+    std::stringstream ss;
     ss << amount;
-    string str = ss.str();
+    std::string str = ss.str();
     return str;
 }
 
-string SupportiveMethods::swapFirstLetterForLargeOtherForSmall(string text) {
+std::string SupportiveMethods::swapFirstLetterForLargeOtherForSmall(std::string text) {
     if (!text.empty()) {
         transform(text.begin(), text.end(), text.begin(), ::tolower);
         text[0] = toupper(text[0]);
@@ -22,7 +22,7 @@ string SupportiveMethods::swapFirstLetterForLargeOtherForSmall(string text) {
 }
 
 char SupportiveMethods::readSign() {
-    string input;
+    std::string input;
     char sign = {0};
 
     while (true) {
@@ -31,20 +31,20 @@ char SupportiveMethods::readSign() {
             sign = input[0];
             break;
         }
-        cout << "To nie jest pojedynczy znak. Wpisz ponownie: " << endl;
+        std::cout << "To nie jest pojedynczy znak. Wpisz ponownie: " << std::endl;
     }
     return sign;
 }
 
-string SupportiveMethods::getCurrentDate() {
-    auto currentDate = floor<days>(chrono::system_clock::now());
-    return format("%F", currentDate);
+std::string SupportiveMethods::getCurrentDate() {
+    auto currentDate = date::floor<date::days>(std::chrono::system_clock::now());
+    return date::format("%F", currentDate);
 }
 
-bool SupportiveMethods::isValidDate(string inputDate) {
+bool SupportiveMethods::isValidDate(std::string inputDate) {
     if (inputDate.length() == 10) {
-        year_month_day parsedDate;
-        istringstream dateStream(inputDate);
+        date::year_month_day parsedDate;
+        std::istringstream dateStream(inputDate);
 
         if (dateStream >> date::parse("%F", parsedDate)) {
             return true;
@@ -55,7 +55,7 @@ bool SupportiveMethods::isValidDate(string inputDate) {
     return false;
 }
 
-string SupportiveMethods::swapCommaToDot(string input) {
+std::string SupportiveMethods::swapCommaToDot(std::string input) {
     for (char& c : input) {
         if (c == ',') {
             c = '.';
@@ -67,18 +67,18 @@ string SupportiveMethods::swapCommaToDot(string input) {
 
 bool SupportiveMethods::compareByDate(Transaction a, Transaction b) {
 
-    istringstream dateStreamA(a.getDate());
-    istringstream dateStreamB(b.getDate());
-    year_month_day dateA, dateB;
+    std::istringstream dateStreamA(a.getDate());
+    std::istringstream dateStreamB(b.getDate());
+    date::year_month_day dateA, dateB;
     dateStreamA >> parse("%F", dateA);
     dateStreamB >> parse("%F", dateB);
 
     return dateA < dateB;
 }
 
-year_month_day SupportiveMethods::convertFromStringToDate(string input) {
-    istringstream dateStream(input);
-    year_month_day date;
+date::year_month_day SupportiveMethods::convertFromStringToDate(std::string input) {
+    std::istringstream dateStream(input);
+    date::year_month_day date;
     dateStream >> parse("%Y-%m-%d", date);
     return date;
 }

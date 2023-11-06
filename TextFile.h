@@ -4,17 +4,16 @@
 #include <iostream>
 #include <fstream>
 
-using namespace std;
 
 class TextFile {
 
-    const string FILE_NAME;
+    const std::string FILE_NAME;
 
     public:
-        TextFile(string fileName) : FILE_NAME(fileName) {
+        TextFile(std::string fileName) : FILE_NAME(fileName) {
     }
 
-    string getFileName();
+    std::string getFileName();
 };
 
 #endif

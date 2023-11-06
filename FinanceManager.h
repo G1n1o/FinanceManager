@@ -5,16 +5,15 @@
 #include "UserManager.h"
 #include "Accountant.h"
 
-using namespace std;
 
 class FinanceManager {
     UserManager userManager;
     Accountant *accountant;
-    const string FILE_NAME_WITH_INCOMES;
-    const string FILE_NAME_WITH_EXPENSES;
+    const std::string FILE_NAME_WITH_INCOMES;
+    const std::string FILE_NAME_WITH_EXPENSES;
 
 public:
-    FinanceManager(string fileNameWithUsers, string fileNameWithIncomes, string fileNameWithExpenses)
+    FinanceManager(std::string fileNameWithUsers, std::string fileNameWithIncomes, std::string fileNameWithExpenses)
         : userManager(fileNameWithUsers), FILE_NAME_WITH_INCOMES(fileNameWithIncomes), FILE_NAME_WITH_EXPENSES(fileNameWithExpenses) {
         accountant = NULL;
     };

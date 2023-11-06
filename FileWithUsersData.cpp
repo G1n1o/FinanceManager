@@ -22,9 +22,9 @@ void FileWithUsersData::saveUserDataInFile(User user) {
     xml.Save(getFileName());
 }
 
-vector <User> FileWithUsersData::readUsersFromFile() {
+std::vector <User> FileWithUsersData::readUsersFromFile() {
     User user;
-    vector <User> users;
+    std::vector <User> users;
     CMarkup xml;
 
     if (xml.Load(getFileName())) {
@@ -33,7 +33,7 @@ vector <User> FileWithUsersData::readUsersFromFile() {
         while (xml.FindElem("user")) {
             xml.IntoElem();
             xml.FindElem("idUser");
-            string idUserStr = xml.GetData();
+            std::string idUserStr = xml.GetData();
             user.setIdUser(stoi(idUserStr));
             xml.FindElem("login");
             user.setLogin(xml.GetData());
@@ -48,12 +48,12 @@ vector <User> FileWithUsersData::readUsersFromFile() {
         }
         xml.OutOfElem();
     } else {
-        cout << "Nie udalo sie zaladowac pliku" << endl;
+        std::cout << "Nie udalo sie zaladowac pliku" << std::endl;
     }
     return users;
 }
 
-void FileWithUsersData::saveNewPasswordInFile(string password, int idLoggedUser) {
+void FileWithUsersData::saveNewPasswordInFile(std::string password, int idLoggedUser) {
 
     CMarkup xml;
     if (xml.Load(getFileName())) {
@@ -62,7 +62,7 @@ void FileWithUsersData::saveNewPasswordInFile(string password, int idLoggedUser)
             while (xml.FindElem("user")) {
                 xml.IntoElem();
                 xml.FindElem("idUser");
-                string idUserStr = xml.GetData();
+                std::string idUserStr = xml.GetData();
                 int idUser = stoi(idUserStr);
                 if (idUser == idLoggedUser) {
                     xml.FindElem("password");
@@ -73,9 +73,9 @@ void FileWithUsersData::saveNewPasswordInFile(string password, int idLoggedUser)
             xml.Save(getFileName());
 
         } else {
-            cout << "Nie znaleziono elementu <users> w pliku XML." << endl;
+            std::cout << "Nie znaleziono elementu <users> w pliku XML." << std::endl;
         }
     } else {
-        cout << "Nie udalo sie zaladowac pliku XML." << endl;
+        std::cout << "Nie udalo sie zaladowac pliku XML." << std::endl;
     }
 }

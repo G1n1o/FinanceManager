@@ -1,5 +1,5 @@
 #include "TextFile.h"
 
-string TextFile::getFileName() {
+std::string TextFile::getFileName() {
 return FILE_NAME;
 }

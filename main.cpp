@@ -2,8 +2,6 @@
 #include "FinanceManager.h"
 
 
-using namespace std;
-
 
 int main() {
     FinanceManager financeManager("Users.xml", "Incomes.xml", "Expenses.xml");
@@ -18,7 +16,7 @@ int main() {
             case '2': financeManager.userLogging(); break;
             case '9': exit(0); break;
             default:
-                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                std::cout << std::endl << "Nie ma takiej opcji w menu." << std::endl << std::endl;
                 system("pause");
                 break;
             }
@@ -34,7 +32,7 @@ int main() {
             case '6': financeManager.changePasswordLoggedUser(); break;
             case '7': financeManager.userLogout(); break;
             default:
-                cout << endl << "Nie ma takiej opcji w menu." << endl << endl;
+                std::cout << std::endl << "Nie ma takiej opcji w menu." << std::endl << std::endl;
                 system("pause");
                 break;
             }

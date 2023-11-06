@@ -4,26 +4,24 @@
 #include <iostream>
 
 
-using namespace std;
-
 class Transaction {
     int transId, idUser;
-    string date;
-    string item;
+    std::string date;
+    std::string item;
     float amount;
 
 
 public:
     void setTransId (int newTransId);
     void setIdUser (int newIdUser);
-    void setDate (string newDate);
-    void setItem (string newItem);
+    void setDate (std::string newDate);
+    void setItem (std::string newItem);
     void setAmount (float newAmount);
 
     int getTransId();
     int getIdUser();
-    string getDate();
-    string getItem();
+    std::string getDate();
+    std::string getItem();
     float getAmount();
 };
 

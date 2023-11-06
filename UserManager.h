@@ -6,21 +6,20 @@
 #include <fstream>
 #include <sstream>
 
-using namespace std;
 
 class UserManager {
     int idLoggedUser;
-    vector <User> users;
+    std::vector <User> users;
     FileWithUsersData fileWithUsersData;
 
     User addDataNewUser();
     int getNewUserId();
-    bool loginCheck(string login);
+    bool loginCheck(std::string login);
     char selectOptionFromGeneralMenu();
 
 
 public:
-    UserManager(string fileNameWithUsers) : fileWithUsersData(fileNameWithUsers) {
+    UserManager(std::string fileNameWithUsers) : fileWithUsersData(fileNameWithUsers) {
         idLoggedUser = 0;
         users = fileWithUsersData.readUsersFromFile();
     };
